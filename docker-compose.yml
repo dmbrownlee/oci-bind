@@ -4,7 +4,7 @@ services:
     hostname: ${COMPOSE_PROJECT_NAME}
     domainname: ${LOCAL_DOMAIN}
     container_name: ${COMPOSE_PROJECT_NAME}
-    image: internetsystemsconsortium/bind9:9.20
+    image: internetsystemsconsortium/bind9:${BIND_TAG}
     restart: unless-stopped
     volumes:
       - conf:/etc/bind
