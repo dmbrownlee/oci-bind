@@ -7,20 +7,14 @@ services:
     image: internetsystemsconsortium/bind9:${BIND_TAG}
     restart: unless-stopped
     volumes:
-      - conf:/etc/bind
-      - cache:/var/cache/bind
-      - lib:/var/lib/bind
-      - log:/var/log
+      - /appdata/${COMPOSE_PROJECT_NAME}/conf:/etc/bind
+      - /appdata/${COMPOSE_PROJECT_NAME}/cache:/var/cache/bind
+      - /appdata/${COMPOSE_PROJECT_NAME}/lib:/var/lib/bind
+      - /appdata/${COMPOSE_PROJECT_NAME}/log:/var/log
     dns_search: ${LOCAL_DOMAIN}
     networks:
       net1:
         ipv4_address: ${THIS_IP}
-
-volumes:
-  conf:
-  cache:
-  lib:
-  log:
 
 networks:
   net1:
